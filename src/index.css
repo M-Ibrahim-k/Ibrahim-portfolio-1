@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* Define your theme variables for v4 */
+@theme {
+  --color-primary: #C9F31D;
+  --color-soft-black: #0D0D0D;
+  --color-muted-black: #1A1A1A;
+--font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    background-color: black;
+  }
+  body {
+    /* v4 supports variables directly as classes: bg-soft-black, text-primary */
+    color: white;
+  }
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
