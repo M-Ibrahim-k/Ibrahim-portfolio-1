@@ -6,6 +6,7 @@ import leftAboutImg from "./assets/left-about-img.png";
 import homeRightBg from "./assets/home-right-bg.png";
 import rightClientImg from "./assets/right-client-img.png";
 import homebg from "./assets/layer-home-bg.jpeg";
+import ibbiCV from "./assets/ibbi-cv.jpeg";
 import nourDoc1 from "./assets/nour-doc-1.jpeg";
 import nourDoc2 from "./assets/nour-doc-2.jpeg";
 import nourDoc3 from "./assets/nour-doc-3.jpeg";
@@ -116,7 +117,7 @@ function App() {
     <section>
       <div className={`${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} font-sans ${isDarkMode ? 'selection:bg-primary selection:text-black' : 'selection:bg-orange-500 selection:text-white'} transition-colors duration-300`}>
         {/* HEADER */}
-        <header className={`flex justify-between items-center px-10 py-5 ${isDarkMode ? 'bg-black/80 text-white border-white/10' : 'bg-white/90 text-black border-black/10'} border-b sticky top-0 z-50 backdrop-blur-md transition-colors duration-300`}>
+        <header className={`flex justify-between items-center px-4 md:px-10 py-3 md:py-5 ${isDarkMode ? 'bg-black/80 text-white border-white/10' : 'bg-white/90 text-black border-black/10'} border-b sticky top-0 z-50 backdrop-blur-md transition-colors duration-300`}>
           {/* Logo Section */}
           <div 
             className="flex items-center gap-2 cursor-pointer group"
@@ -132,7 +133,7 @@ function App() {
                 />
               </svg>
             </div>
-            <span className="text-2xl font-bold tracking-tight">
+            <span className="text-xl md:text-2xl font-bold tracking-tight">
               Ibrahim Khan.
             </span>
           </div>
@@ -150,7 +151,7 @@ function App() {
                   Home
                 </span>
                 {activeSection === 'home' && (
-                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-13 h-1.5 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}`}></div>
+                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-8 h-0.5 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}`}></div>
                 )}
               </li>
               <li className="relative">
@@ -163,7 +164,7 @@ function App() {
                   Project
                 </span>
                 {activeSection === 'portfolio' && (
-                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-13 h-1.5 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}`}></div>
+                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-12 h-0.5 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}`}></div>
                 )}
               </li>
               <li className="relative">
@@ -176,12 +177,12 @@ function App() {
                   About
                 </span>
                 {activeSection === 'about' && (
-                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-13 h-1.5 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}`}></div>
+                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-10 h-0.5 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}`}></div>
                 )}
               </li>
             </ul>
             {/* The Straight Line centered under the links */}
-            <div className={`h-[1px] w-80 ${isDarkMode ? 'bg-white/20' : 'bg-black/20'}`}></div>
+            <div className={`h-[2px] w-80 ${isDarkMode ? 'bg-white/20' : 'bg-black/20'}`}></div>
           </nav>
 
           {/* Theme Toggle & Contact Button */}
@@ -225,7 +226,7 @@ function App() {
         {/* HOME SECTION */}
         <section 
           id="home"
-          className={`h-screen snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} flex flex-col justify-center px-10 overflow-hidden transition-colors duration-300`}
+          className={`h-screen snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} flex flex-col justify-center px-4 md:px-10 overflow-hidden transition-colors duration-300`}
         >
           {/* Layered Backgrounds */}
           <div className="absolute inset-0 z-0">
@@ -243,27 +244,27 @@ function App() {
             </div>
           </div>
 
-          <motion.div {...fadeInUp} className="relative z-10 max-w-7xl mx-auto w-full">
-            <div className="space-y-4 mb-12">
-              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
-                <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter uppercase">
+          <motion.div {...fadeInUp} className="relative z-10 max-w-7xl mx-auto w-full pt-16 md:pt-20">
+            <div className="space-y-4 mb-8 md:mb-12">
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 md:gap-8">
+                <h1 className="text-4xl md:text-7xl lg:text-9xl font-bold tracking-tighter uppercase">
                   DESIGN
                 </h1>
               </div>
 
-              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:ml-32">
-                <div className="flex gap-3">
-                  <div className={`w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-full ${isDarkMode ? 'bg-primary' : 'bg-orange-500'} animate-pulse`}></div>
-                  <div className={`w-6 h-6 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full ${isDarkMode ? 'bg-primary/70' : 'bg-orange-400'} animate-pulse delay-150`}></div>
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 md:gap-8 lg:ml-32">
+                <div className="flex gap-2 md:gap-3">
+                  <div className={`w-6 h-6 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-full ${isDarkMode ? 'bg-primary' : 'bg-orange-500'} animate-pulse`}></div>
+                  <div className={`w-5 h-5 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full ${isDarkMode ? 'bg-primary/70' : 'bg-orange-400'} animate-pulse delay-150`}></div>
                   <div className={`w-4 h-4 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full ${isDarkMode ? 'bg-primary/40' : 'bg-orange-300'} animate-pulse delay-300`}></div>
                 </div>
-                <h1 className={`text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter uppercase ${isDarkMode ? 'text-primary' : 'text-orange-500'}`}>
+                <h1 className={`text-4xl md:text-7xl lg:text-9xl font-bold tracking-tighter uppercase ${isDarkMode ? 'text-primary' : 'text-orange-500'}`}>
                   PARTNER
                 </h1>
               </div>
             </div>
 
-            <p className={`max-w-2xl text-lg md:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed mb-12`}>
+            <p className={`max-w-2xl text-base md:text-lg lg:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed mb-8 md:mb-12`}>
               I believe in the power of innovation and creativity to transform
               your ideas into exceptional digital experiences that drive real results.
             </p>
@@ -295,9 +296,9 @@ function App() {
         {/* ABOUT ME SECTION */}
         <section 
           id="about"
-          className={`h-screen w-full snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} flex flex-col justify-center px-10 overflow-hidden transition-colors duration-300`}
+          className={`h-screen w-full snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} flex flex-col justify-center px-4 md:px-10 overflow-hidden transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
             {/* Header Part */}
             <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-6">
               <div className="flex-1">
@@ -341,19 +342,7 @@ function App() {
                 {/* Description */}
                 <div className="space-y-4">
                   <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-lg leading-relaxed`}>
-                    My journey began with a simple yet powerful idea: To
-                    revolutionize the digital landscape through innovative
-                    design solutions and exceptional creativity.
-                  </p>
-                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-lg leading-relaxed`}>
-                    Driven by a passion for design and user experience, I set out to
-                    create unique digital experiences that make an impact
-                    online. Every project is an opportunity to push boundaries
-                    and deliver designs that truly matter.
-                  </p>
-                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-lg leading-relaxed`}>
-                    With expertise in UI/UX design and branding, I transform complex ideas into elegant,
-                    functional designs that resonate with users and create lasting brand impressions.
+                    Driven by a passion for design and user experience, I create unique digital experiences that make an impact online.
                   </p>
                 </div>
 
@@ -420,10 +409,10 @@ function App() {
         {/* SERVICES SECTION */}
         <section 
           id="services"
-          className={`h-screen w-full snap-start flex flex-col justify-center px-10 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} transition-colors duration-300`}
+          className={`h-screen w-full snap-start flex flex-col justify-center px-4 md:px-10 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-tighter">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-tighter">
               Solutions
             </h2>
             
@@ -445,7 +434,7 @@ function App() {
                   {...fadeInUp}
                   className={`group border-b ${isDarkMode ? 'border-white/10 hover:bg-white/5' : 'border-black/10 hover:bg-black/5'} transition-all cursor-pointer`}
                 >
-                  <div className="py-12 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+                  <div className="py-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
                     <div className="flex-1">
                       <h3 className="text-3xl md:text-4xl font-bold group-hover:translate-x-6 transition-transform mb-4">
                         0{i+1}. {service.title}
@@ -477,11 +466,11 @@ function App() {
         {/* TESTIMONIALS SECTION */}
         <section 
           id="testimonials"
-          className={`h-screen snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} flex flex-col justify-center px-10 pt-20 pb-10 overflow-hidden transition-colors duration-300`}
+          className={`h-screen snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} flex flex-col justify-center px-4 md:px-10 overflow-hidden transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-8">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
                 <div>
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                     What my clients say
@@ -537,10 +526,10 @@ function App() {
         {/* PORTFOLIO SECTION */}
         <section 
           id="portfolio"
-          className={`h-screen snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} flex flex-col justify-center px-10 pt-20 pb-10 overflow-hidden transition-colors duration-300`}
+          className={`h-screen snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} flex flex-col justify-center px-4 md:px-10 overflow-hidden transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-tighter">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-tighter">
               My Work
             </h2>
 
@@ -631,24 +620,24 @@ function App() {
         {/* CONTACT SECTION */}
         <section 
           id="contact"
-          className={`h-screen ${isDarkMode ? 'bg-black text-white border-white/10' : 'bg-white text-black border-black/10'} flex flex-col justify-center px-10 pt-20 pb-10 border-t transition-colors duration-300`}
+          className={`h-screen ${isDarkMode ? 'bg-black text-white border-white/10' : 'bg-white text-black border-black/10'} flex flex-col justify-center px-4 md:px-10 border-t transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
             {/* Section Header */}
-            <div className="text-center mb-12">
-              <h2 className={`text-5xl md:text-6xl lg:text-7xl font-black ${isDarkMode ? 'text-primary' : 'text-orange-500'} tracking-tighter uppercase mb-6`}>
+            <div className="text-center mb-8">
+              <h2 className={`text-5xl md:text-6xl lg:text-7xl font-black ${isDarkMode ? 'text-primary' : 'text-orange-500'} tracking-tighter uppercase mb-4`}>
                 LET'S TALK
               </h2>
               
-              <p className={`text-lg md:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed mb-8`}>
+              <p className={`text-lg md:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed mb-6`}>
                 Ready to bring your ideas to life? Let's discuss your project and create something amazing together.
               </p>
             </div>
 
             {/* Contact Methods */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <motion.div {...fadeInUp} className="space-y-6">
-                <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6`}>Get In Touch</h3>
+                <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4`}>Get In Touch</h3>
                 
                 <div className="space-y-4">
                   <div className={`flex items-center gap-4 p-4 ${isDarkMode ? 'bg-white/5 border-white/10 hover:border-primary/50' : 'bg-black/5 border-black/10 hover:border-orange-500/50'} border rounded-lg transition-all`}>
@@ -688,42 +677,53 @@ function App() {
               </motion.div>
 
               <motion.div {...fadeInUp} className="space-y-6">
-                <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6`}>Quick Response</h3>
+                <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4`}>Quick Response</h3>
                 <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
                   I typically respond within 24 hours. Whether you have a project in mind, 
                   need a consultation, or just want to say hello, I'd love to hear from you.
                 </p>
                 
-                <div className="flex flex-wrap gap-4">
+                {/* <div className="flex flex-wrap gap-4">
                   <div className={`px-4 py-2 ${isDarkMode ? 'bg-primary/10 border-primary/20' : 'bg-orange-500/10 border-orange-500/20'} border rounded-full`}>
                     <span className={`${isDarkMode ? 'text-primary' : 'text-orange-600'} text-sm font-medium`}>Available for Projects</span>
                   </div>
                   <div className={`px-4 py-2 ${isDarkMode ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-black/5 border-black/10 text-gray-700'} border rounded-full`}>
                     <span className="text-sm">Remote Friendly</span>
                   </div>
+                </div> */}
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 pt-8">
+                  <a
+                    href="mailto:Muhammad.ibrahim.k@protonmail.com"
+                    className={`inline-flex items-center gap-2 px-6 py-3 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'} text-black font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 text-sm`}
+                  >
+                    Start a Project
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                  </a>
+                  
+                  <a
+                    href={ibbiCV}
+                    download="Ibrahim_Khan_CV.jpeg"
+                    className={`inline-flex items-center gap-2 px-6 py-3 border-2 ${isDarkMode ? 'border-white/20 text-white hover:border-primary hover:text-primary hover:bg-primary/10' : 'border-black/20 text-black hover:border-orange-500 hover:text-orange-500 hover:bg-orange-500/10'} font-bold uppercase tracking-wider transition-all duration-300 text-sm`}
+                  >
+                    Download CV
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                  </a>
                 </div>
               </motion.div>
-            </div>
-
-            {/* CTA Button */}
-            <div className="text-center">
-              <a
-                href="mailto:Muhammad.ibrahim.k@protonmail.com"
-                className={`inline-flex items-center gap-3 px-12 py-6 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'} text-black font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 text-lg`}
-              >
-                Start a Project
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                </svg>
-              </a>
             </div>
           </motion.div>
         </section>
 
         {/* FOOTER */}
-        <footer className={`h-screen snap-start flex flex-col justify-between px-10 pt-20 pb-10 overflow-hidden relative ${isDarkMode ? 'border-white/10 bg-black text-white' : 'border-black/10 bg-gray-50 text-black'} border-t transition-colors duration-300`}>
-          <motion.div {...fadeInUp} className="flex-grow flex flex-col justify-center items-center max-w-7xl mx-auto w-full">
-            <div className="text-center space-y-12">
+        <footer className={`h-screen snap-start flex flex-col justify-between px-4 md:px-10 overflow-hidden relative ${isDarkMode ? 'border-white/10 bg-black text-white' : 'border-black/10 bg-gray-50 text-black'} border-t transition-colors duration-300`}>
+          <motion.div {...fadeInUp} className="flex-grow flex flex-col justify-center items-center max-w-7xl mx-auto w-full py-10">
+            <div className="text-center space-y-8">
               <h3 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} uppercase tracking-widest`}>
                 Let's Build Something Great
               </h3>
@@ -765,14 +765,14 @@ function App() {
             </div>
           </motion.div>
           
-          <motion.div {...fadeInUp} className="w-full">
-            <div className={`border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'} pt-8`}>
+          <motion.div {...fadeInUp} className="w-full py-10">
+            <div className={`border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'} pt-6`}>
               <h1 className={`text-[12vw] md:text-[15vw] font-black leading-none tracking-tighter text-center uppercase opacity-80 ${isDarkMode ? 'hover:text-primary' : 'hover:text-orange-500'} transition-all duration-700 cursor-default`}>
                 IBRAHIM
               </h1>
-              <div className={`flex flex-col md:flex-row justify-between items-center mt-6 text-xs ${isDarkMode ? 'text-gray-600' : 'text-gray-500'} tracking-[0.3em] uppercase`}>
+              <div className={`flex flex-col md:flex-row justify-between items-center mt-4 text-xs ${isDarkMode ? 'text-gray-600' : 'text-gray-500'} tracking-[0.3em] uppercase`}>
                 <p>© 2026 Ibrahim Khan. All Rights Reserved</p>
-                <p className="mt-2 md:mt-0">Designed & Developed with ❤️</p>
+                <p className="mt-2 md:mt-0">Designed by IBBRAHIM , Developed by SALAR AHMED MIRZA</p>
               </div>
             </div>
           </motion.div>
