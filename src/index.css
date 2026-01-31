@@ -3,6 +3,7 @@
 /* Define your theme variables for v4 */
 @theme {
   --color-primary: #C9F31D;
+  --color-primary-light: #FF6B35;
   --color-soft-black: #0D0D0D;
   --color-muted-black: #1A1A1A;
 --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
