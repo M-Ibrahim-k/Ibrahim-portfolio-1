@@ -350,7 +350,7 @@ function App() {
                 <div className="space-y-4">
                   <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>Expertise</h3>
                   <div className="flex flex-wrap gap-3">
-                    {['UI/UX Design', 'Figma', 'Adobe Creative Suite', 'Prototyping', 'User Research', 'Branding'].map((skill, i) => (
+                    {['End-to-End UX Design', 'Product Thinking', 'User-Centered Design', 'Wireframing & Prototyping', 'Cross-Functional Collaboration', 'Developer Handoff','Design Systems'].map((skill, i) => (
                       <span 
                         key={i}
                         className={`px-4 py-2 ${isDarkMode ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-black/5 border-black/10 text-gray-700'} border rounded-full text-sm font-medium ${isDarkMode ? 'hover:border-primary/50 hover:text-primary' : 'hover:border-orange-500/50 hover:text-orange-500'} transition-all`}
@@ -742,25 +742,14 @@ function App() {
                         +92 311 2707222
                       </a>
                     </p>
+                    <p>
+                      <a href="https://www.linkedin.com/in/muhammad-ibrahimkhan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className={`${isDarkMode ? 'hover:text-primary' : 'hover:text-orange-500'} transition-colors`}>
+                        <span className=" text-black-400">LinkedIn</span> Ibrahim Khan 
+                      </a>
+                    </p>
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <h4 className={`text-lg font-bold ${isDarkMode ? 'text-primary' : 'text-orange-500'} uppercase`}>Follow</h4>
-                  <div className="flex justify-center md:justify-start gap-4">
-                    {['LinkedIn', 'GitHub', 'Twitter'].map((social, i) => (
-                      <a 
-                        key={i}
-                        href="#" 
-                        className={`w-10 h-10 ${isDarkMode ? 'bg-white/5 border-white/10 hover:border-primary hover:bg-primary/10' : 'bg-black/5 border-black/10 hover:border-orange-500 hover:bg-orange-500/10'} border rounded-full flex items-center justify-center transition-all`}
-                      >
-                        <span className={`text-xs font-bold ${isDarkMode ? 'text-gray-400 hover:text-primary' : 'text-gray-600 hover:text-orange-500'} transition-colors`}>
-                          {social[0]}
-                        </span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           </motion.div>
