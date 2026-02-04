@@ -30,7 +30,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -364,10 +364,10 @@ function App() {
                 {/* Stats Row */}
                 <div className={`grid grid-cols-2 gap-6 py-6 border-y ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
                   {[
-                    { label: "Design Projects", val: "25" },
-                    { label: "Happy Clients", val: "15" },
-                    { label: "Years Experience", val: "3" },
-                    { label: "Design Tools", val: "8" },
+                    { label: "Design Projects", val: "10" },
+                    { label: "Happy Clients", val: "5" },
+                    { label: "Years Experience", val: "2" },
+                    { label: "Design Tools", val: "7" },
                   ].map((stat, i) => (
                     <div key={i} className="text-center lg:text-left">
                       <h4 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-primary' : 'text-orange-500'} mb-2`}>
@@ -424,9 +424,8 @@ function App() {
                   technologies: ["User Research", "Wireframing", "Prototyping", "Visual Design"]
                 },
                 {
-                  title: "Branding & Identity",
-                  description: "Creating memorable brand experiences that resonate with your audience",
-                  technologies: ["Logo Design", "Brand Guidelines", "Visual Identity", "Brand Strategy"]
+                  title: "Design Project Management",
+                  description: "End-to-End Project Ownership, Timeline & Milestone Planning,Feedback & Iteration Management"
                 }
               ].map((service, i) => (
                 <motion.div 
@@ -437,7 +436,7 @@ function App() {
                   <div className="py-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
                     <div className="flex-1">
                       <h3 className="text-3xl md:text-4xl font-bold group-hover:translate-x-6 transition-transform mb-4">
-                        0{i+1}. {service.title}
+                        {} {service.title}
                       </h3>
                       <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-lg mb-4 max-w-2xl`}>
                         {service.description}
@@ -761,7 +760,7 @@ function App() {
               </h1>
               <div className={`flex flex-col md:flex-row justify-between items-center mt-4 text-xs ${isDarkMode ? 'text-gray-600' : 'text-gray-500'} tracking-[0.3em] uppercase`}>
                 <p>© 2026 Ibrahim Khan. All Rights Reserved</p>
-                <p className="mt-2 md:mt-0">Designed by IBBRAHIM , Developed by SALAR AHMED MIRZA</p>
+                <p className="mt-2 md:mt-0">Designed by IBRAHIM , Developed by SALAR AHMED MIRZA</p>
               </div>
             </div>
           </motion.div>
