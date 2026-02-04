@@ -8,5 +8,5 @@ export default defineConfig({
     tailwindcss(),
     
   ],
-  base:'/Ibbi-portfolio',
+  base:'/Ibrahim-portfolio-1/',
 })
