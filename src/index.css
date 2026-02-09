@@ -20,6 +20,17 @@
     /* v4 supports variables directly as classes: bg-soft-black, text-primary */
     color: white;
   }
+  
+  /* Fix for mobile viewport height */
+  .min-h-screen-mobile {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+  
+  .h-screen-mobile {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+  }
 }
 
 @keyframes scroll {

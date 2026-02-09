@@ -107,17 +107,17 @@ function App() {
       category: 'Travel',
       tags: ['UI/UX Design', 'Travel'],
       images: [
-        { src: visaAssistant1, title: "Application Dashboard", desc: "Visa application overview and status" },
-        { src: visaAssistant2, title: "Document Upload", desc: "Secure document management system" },
-        { src: visaAssistant3, title: "Tracking System", desc: "Real-time application tracking" }
+        { src: visaAssistant1, title: "AI Dashboard", desc: "Visa application overview and status" },
+        { src: visaAssistant2, title: "Application Dashboard", desc: "Secure document management system" },
+        { src: visaAssistant3, title: "Dashboard Overview", desc: "Real-time application tracking" }
       ]
     }
   ];
   return (
-    <section>
+    <div className="snap-y snap-mandatory overflow-y-scroll h-screen">
       <div className={`${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} font-sans ${isDarkMode ? 'selection:bg-primary selection:text-black' : 'selection:bg-orange-500 selection:text-white'} transition-colors duration-300`}>
         {/* HEADER */}
-        <header className={`flex justify-between items-center px-4 md:px-10 py-3 md:py-5 ${isDarkMode ? 'bg-black/80 text-white border-white/10' : 'bg-white/90 text-black border-black/10'} border-b sticky top-0 z-50 backdrop-blur-md transition-colors duration-300`}>
+        <header className={`flex justify-between items-center px-4 md:px-10 py-3 md:py-5 ${isDarkMode ? 'bg-black/80 text-white border-white/10' : 'bg-white/90 text-black border-black/10'} border-b fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-colors duration-300`}>
           {/* Logo Section */}
           <div 
             className="flex items-center gap-2 cursor-pointer group"
@@ -139,50 +139,66 @@ function App() {
           </div>
 
           {/* Navigation Links with Line Underneath */}
-          <nav className="hidden md:flex flex-col items-center gap-2">
-            <ul className="flex gap-8 text-sm font-bold uppercase tracking-wider relative">
+          <nav className="hidden md:flex flex-col items-center relative">
+            <ul className="flex gap-8 text-sm font-bold uppercase tracking-wider mb-3">
               <li className="relative">
                 <span
-                  className={`cursor-pointer transition-colors ${
+                  className={`cursor-pointer transition-all duration-300 ${
                     activeSection === 'home' ? (isDarkMode ? 'text-primary' : 'text-orange-500') : `${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`
                   }`}
                   onClick={() => scrollToSection('home')}
                 >
                   Home
                 </span>
-                {activeSection === 'home' && (
-                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-8 h-0.5 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}`}></div>
-                )}
               </li>
               <li className="relative">
                 <span
-                  className={`cursor-pointer transition-colors ${
+                  className={`cursor-pointer transition-all duration-300 ${
                     activeSection === 'portfolio' ? (isDarkMode ? 'text-primary' : 'text-orange-500') : `${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`
                   }`}
                   onClick={() => scrollToSection('portfolio')}
                 >
                   Project
                 </span>
-                {activeSection === 'portfolio' && (
-                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-12 h-0.5 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}`}></div>
-                )}
               </li>
               <li className="relative">
                 <span
-                  className={`cursor-pointer transition-colors ${
+                  className={`cursor-pointer transition-all duration-300 ${
                     activeSection === 'about' ? (isDarkMode ? 'text-primary' : 'text-orange-500') : `${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`
                   }`}
                   onClick={() => scrollToSection('about')}
                 >
                   About
                 </span>
-                {activeSection === 'about' && (
-                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-10 h-0.5 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}`}></div>
-                )}
               </li>
             </ul>
             {/* The Straight Line centered under the links */}
-            <div className={`h-[2px] w-80 ${isDarkMode ? 'bg-white/20' : 'bg-black/20'}`}></div>
+            <div className="relative w-80 h-[2px]">
+              {/* Base line with gradient */}
+              <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-transparent via-white/30 to-transparent' : 'bg-gradient-to-r from-transparent via-black/30 to-transparent'}`}></div>
+              {/* Active section indicator on the same line */}
+              {activeSection === 'home' && (
+                <motion.div 
+                  layoutId="activeIndicator"
+                  className={`absolute top-0 left-[calc(50%-160px)] w-10 h-[2px] ${isDarkMode ? 'bg-primary shadow-[0_0_8px_rgba(201,243,29,0.6)]' : 'bg-orange-500 shadow-[0_0_8px_rgba(255,107,53,0.6)]'}`}
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              {activeSection === 'portfolio' && (
+                <motion.div 
+                  layoutId="activeIndicator"
+                  className={`absolute top-0 left-1/2 -translate-x-1/2 w-14 h-[2px] ${isDarkMode ? 'bg-primary shadow-[0_0_8px_rgba(201,243,29,0.6)]' : 'bg-orange-500 shadow-[0_0_8px_rgba(255,107,53,0.6)]'}`}
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              {activeSection === 'about' && (
+                <motion.div 
+                  layoutId="activeIndicator"
+                  className={`absolute top-0 right-[calc(50%-160px)] w-12 h-[2px] ${isDarkMode ? 'bg-primary shadow-[0_0_8px_rgba(201,243,29,0.6)]' : 'bg-orange-500 shadow-[0_0_8px_rgba(255,107,53,0.6)]'}`}
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </div>
           </nav>
 
           {/* Theme Toggle & Contact Button */}
@@ -226,7 +242,7 @@ function App() {
         {/* HOME SECTION */}
         <section 
           id="home"
-          className={`h-screen snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} flex flex-col justify-center px-4 md:px-10 overflow-hidden transition-colors duration-300`}
+          className={`min-h-screen snap-start snap-always relative ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} flex flex-col justify-center px-4 md:px-10 py-20 overflow-hidden transition-colors duration-300`}
         >
           {/* Layered Backgrounds */}
           <div className="absolute inset-0 z-0">
@@ -244,7 +260,7 @@ function App() {
             </div>
           </div>
 
-          <motion.div {...fadeInUp} className="relative z-10 max-w-7xl mx-auto w-full pt-16 md:pt-20">
+          <motion.div {...fadeInUp} className="relative z-10 max-w-7xl mx-auto w-full">
             <div className="space-y-4 mb-8 md:mb-12">
               <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 md:gap-8">
                 <h1 className="text-4xl md:text-7xl lg:text-9xl font-bold tracking-tighter uppercase">
@@ -296,35 +312,25 @@ function App() {
         {/* ABOUT ME SECTION */}
         <section 
           id="about"
-          className={`h-screen w-full snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} flex flex-col justify-center px-4 md:px-10 overflow-hidden transition-colors duration-300`}
+          className={`min-h-screen w-full snap-start snap-always relative ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} flex flex-col px-4 md:px-10 py-20 overflow-y-auto transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full my-auto">
             {/* Header Part */}
-            <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start mb-4 md:mb-6 gap-4">
               <div className="flex-1">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  Passion For <br />
-                  <span className={`${isDarkMode ? 'text-primary' : 'text-orange-500'}`}>Innovation</span>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                  Passion For  
+                  <span className={`${isDarkMode ? 'text-primary' : 'text-orange-500'}`}> Innovation</span>
                 </h2>
-              </div>
-              <div className="text-primary hidden md:block">
-                <svg
-                  width="60"
-                  height="60"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M13 3l-2 5h7l-9 13 2-5H4l9-13z" />
-                </svg>
               </div>
             </div>
 
             {/* Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start">
               {/* Image Side */}
               <motion.div 
                 {...fadeInUp}
-                className="relative group max-w-lg mx-auto lg:mx-0 order-2 lg:order-1"
+                className="relative group max-w-md mx-auto lg:mx-0 order-2 lg:order-1"
               >
                 <div className="relative overflow-hidden rounded-lg">
                   <img
@@ -338,22 +344,22 @@ function App() {
               </motion.div>
 
               {/* Text Side */}
-              <motion.div {...fadeInUp} className="space-y-6 order-1 lg:order-2">
+              <motion.div {...fadeInUp} className="space-y-4 order-1 lg:order-2">
                 {/* Description */}
-                <div className="space-y-4">
-                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-lg leading-relaxed`}>
+                <div className="space-y-3">
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-base md:text-lg leading-relaxed`}>
                     Driven by a passion for design and user experience, I create unique digital experiences that make an impact online.
                   </p>
                 </div>
 
                 {/* Skills/Expertise */}
-                <div className="space-y-4">
-                  <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>Expertise</h3>
-                  <div className="flex flex-wrap gap-3">
+                <div className="space-y-3">
+                  <h3 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>Expertise</h3>
+                  <div className="flex flex-wrap gap-2">
                     {['End-to-End UX Design', 'Product Thinking', 'User-Centered Design', 'Wireframing & Prototyping', 'Cross-Functional Collaboration', 'Developer Handoff','Design Systems'].map((skill, i) => (
                       <span 
                         key={i}
-                        className={`px-4 py-2 ${isDarkMode ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-black/5 border-black/10 text-gray-700'} border rounded-full text-sm font-medium ${isDarkMode ? 'hover:border-primary/50 hover:text-primary' : 'hover:border-orange-500/50 hover:text-orange-500'} transition-all`}
+                        className={`px-3 py-1.5 ${isDarkMode ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-black/5 border-black/10 text-gray-700'} border rounded-full text-xs md:text-sm font-medium ${isDarkMode ? 'hover:border-primary/50 hover:text-primary' : 'hover:border-orange-500/50 hover:text-orange-500'} transition-all`}
                       >
                         {skill}
                       </span>
@@ -362,7 +368,7 @@ function App() {
                 </div>
 
                 {/* Stats Row */}
-                <div className={`grid grid-cols-2 gap-6 py-6 border-y ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
+                <div className={`grid grid-cols-2 gap-4 py-4 border-y ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
                   {[
                     { label: "Design Projects", val: "10" },
                     { label: "Happy Clients", val: "5" },
@@ -370,10 +376,10 @@ function App() {
                     { label: "Design Tools", val: "7" },
                   ].map((stat, i) => (
                     <div key={i} className="text-center lg:text-left">
-                      <h4 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-primary' : 'text-orange-500'} mb-2`}>
+                      <h4 className={`text-2xl md:text-3xl font-bold ${isDarkMode ? 'text-primary' : 'text-orange-500'} mb-1`}>
                         {stat.val}+
                       </h4>
-                      <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} uppercase tracking-wider`}>
+                      <p className={`text-xs md:text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} uppercase tracking-wider`}>
                         {stat.label}
                       </p>
                     </div>
@@ -381,23 +387,23 @@ function App() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <button 
                     onClick={() => scrollToSection('portfolio')}
-                    className={`group relative px-8 py-4 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'} text-black font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 flex items-center justify-center gap-2`}
+                    className={`group relative px-6 py-3 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'} text-black font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 text-sm`}
                   >
                     View My Work
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M7 17L17 7M17 7H7M17 7V17"/>
                     </svg>
                   </button>
                   
                   <button 
                     onClick={() => scrollToSection('contact')}
-                    className={`group relative px-8 py-4 border ${isDarkMode ? 'border-white/20 text-white hover:border-primary hover:text-primary' : 'border-black/20 text-black hover:border-orange-500 hover:text-orange-500'} font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2`}
+                    className={`group relative px-6 py-3 border ${isDarkMode ? 'border-white/20 text-white hover:border-primary hover:text-primary' : 'border-black/20 text-black hover:border-orange-500 hover:text-orange-500'} font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 text-sm`}
                   >
                     Get In Touch
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M7 17L17 7M17 7H7M17 7V17"/>
                     </svg>
                   </button>
@@ -409,9 +415,9 @@ function App() {
         {/* SERVICES SECTION */}
         <section 
           id="services"
-          className={`h-screen w-full snap-start flex flex-col justify-center px-4 md:px-10 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} transition-colors duration-300`}
+          className={`min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 md:px-10 py-20 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-tighter">
               Solutions
             </h2>
@@ -425,7 +431,9 @@ function App() {
                 },
                 {
                   title: "Design Project Management",
-                  description: "End-to-End Project Ownership, Timeline & Milestone Planning,Feedback & Iteration Management"
+                  description: "End-to-End Project Ownership, Timeline & Milestone Planning,Feedback & Iteration Management",
+                  technologies: ["User Research", "Wireframing", "Prototyping", "Visual Design"]
+
                 }
               ].map((service, i) => (
                 <motion.div 
@@ -465,18 +473,18 @@ function App() {
         {/* TESTIMONIALS SECTION */}
         <section 
           id="testimonials"
-          className={`h-screen snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} flex flex-col justify-center px-4 md:px-10 overflow-hidden transition-colors duration-300`}
+          className={`min-h-screen snap-start snap-always relative ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-black'} flex flex-col px-4 md:px-10 py-20 overflow-y-auto transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full my-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="space-y-4 md:space-y-6">
                 <div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                     What my clients say
                   </h2>
                 </div>
                 
-                <blockquote className={`text-xl md:text-2xl font-medium leading-relaxed ${isDarkMode ? 'text-gray-300 border-primary' : 'text-gray-700 border-orange-500'} italic border-l-4 pl-6`}>
+                <blockquote className={`text-lg md:text-xl font-medium leading-relaxed ${isDarkMode ? 'text-gray-300 border-primary' : 'text-gray-700 border-orange-500'} italic border-l-4 pl-4 md:pl-6`}>
                   "Ibrahim has a strong product-first mindset. He transformed
                   complex requirements into clean, scalable UI that fit our tech
                   roadmap perfectly. His attention to detail is exceptional."
@@ -487,10 +495,10 @@ function App() {
                     <span className={`${isDarkMode ? 'text-primary' : 'text-orange-600'} font-bold text-lg`}>AM</span>
                   </div>
                   <div>
-                    <div className={`text-xl font-bold uppercase tracking-wide ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                    <div className={`text-lg md:text-xl font-bold uppercase tracking-wide ${isDarkMode ? 'text-white' : 'text-black'}`}>
                       Atif Malik
                     </div>
-                    <div className={`${isDarkMode ? 'text-primary' : 'text-orange-500'} text-sm font-bold uppercase tracking-widest`}>
+                    <div className={`${isDarkMode ? 'text-primary' : 'text-orange-500'} text-xs md:text-sm font-bold uppercase tracking-widest`}>
                       CEO, M3Hive
                     </div>
                   </div>
@@ -499,11 +507,11 @@ function App() {
                 {/* Rating */}
                 <div className="flex items-center gap-2">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className={`${isDarkMode ? 'text-primary' : 'text-orange-500'}`}>
+                    <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className={`${isDarkMode ? 'text-primary' : 'text-orange-500'}`}>
                       <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
                     </svg>
                   ))}
-                  <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} ml-2`}>5.0</span>
+                  <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} ml-2 text-sm`}>5.0</span>
                 </div>
               </div>
 
@@ -512,7 +520,7 @@ function App() {
                   <img
                     src={rightClientImg}
                     alt="Client Atif Malik"
-                    className={`w-80 h-[450px] object-cover rounded-lg grayscale group-hover:grayscale-0 border-2 ${isDarkMode ? 'border-white/10' : 'border-black/10'} transition-all`}
+                    className={`w-64 md:w-80 h-[350px] md:h-[450px] object-cover rounded-lg grayscale group-hover:grayscale-0 border-2 ${isDarkMode ? 'border-white/10' : 'border-black/10'} transition-all`}
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${isDarkMode ? 'from-black/40' : 'from-white/40'} to-transparent rounded-lg`}></div>
                   <div className={`absolute -inset-4 ${isDarkMode ? 'bg-primary/5 group-hover:bg-primary/10' : 'bg-orange-500/5 group-hover:bg-orange-500/10'} blur-3xl transition-all -z-10 rounded-lg`}></div>
@@ -525,9 +533,9 @@ function App() {
         {/* PORTFOLIO SECTION */}
         <section 
           id="portfolio"
-          className={`h-screen snap-start relative ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} flex flex-col justify-center px-4 md:px-10 overflow-hidden transition-colors duration-300`}
+          className={`min-h-screen snap-start snap-always relative ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} flex flex-col justify-center px-4 md:px-10 py-20 overflow-hidden transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-tighter">
               My Work
             </h2>
@@ -546,27 +554,28 @@ function App() {
                       alt={`${project.title} - ${project.images[0].title}`}
                       className="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${isDarkMode ? 'from-black/80 via-black/20' : 'from-white/80 via-white/20'} to-transparent`}></div>
+                    {/* Stronger gradient for better text visibility */}
+                    <div className={`absolute inset-0 bg-gradient-to-t ${isDarkMode ? 'from-black via-black/60' : 'from-white via-white/60'} to-transparent`}></div>
                     
                     {/* Image Count Badge */}
-                    <div className={`absolute top-4 right-4 ${isDarkMode ? 'bg-black/60' : 'bg-white/60'} backdrop-blur-sm px-3 py-1 rounded-full`}>
-                      <span className={`${isDarkMode ? 'text-white' : 'text-black'} text-xs font-medium`}>{project.images.length} Images</span>
+                    <div className={`absolute top-4 right-4 ${isDarkMode ? 'bg-black/80' : 'bg-white/80'} backdrop-blur-md px-3 py-1.5 rounded-full border ${isDarkMode ? 'border-white/20' : 'border-black/20'}`}>
+                      <span className={`${isDarkMode ? 'text-white' : 'text-black'} text-xs font-bold`}>{project.images.length} Images</span>
                     </div>
                     
                     {/* Project Info */}
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-2`}>{project.title}</h3>
-                      <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-4`}>{project.description}</p>
+                      <h3 className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-2 drop-shadow-lg`}>{project.title}</h3>
+                      <p className={`text-sm ${isDarkMode ? 'text-gray-100' : 'text-gray-900'} mb-4 font-medium drop-shadow-md`}>{project.description}</p>
                       
                       {/* Tags */}
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.tags.map((tag, tagIndex) => (
                           <span 
                             key={tagIndex}
-                            className={`px-3 py-1 rounded-full text-xs font-medium ${
+                            className={`px-3 py-1.5 rounded-full text-xs font-bold backdrop-blur-sm ${
                               tagIndex === 0 
-                                ? `${isDarkMode ? 'bg-primary/20 border-primary/30 text-primary' : 'bg-orange-500/20 border-orange-500/30 text-orange-600'}` 
-                                : `${isDarkMode ? 'bg-white/10 border-white/20 text-gray-300' : 'bg-black/10 border-black/20 text-gray-700'}`
+                                ? `${isDarkMode ? 'bg-primary/30 border-primary/50 text-primary' : 'bg-orange-500/30 border-orange-500/50 text-orange-700'}` 
+                                : `${isDarkMode ? 'bg-white/20 border-white/30 text-white' : 'bg-black/20 border-black/30 text-black'}`
                             } border`}
                           >
                             {tag}
@@ -577,30 +586,30 @@ function App() {
                       {/* Fancy Interactive Element */}
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className={`w-12 h-12 ${isDarkMode ? 'bg-primary/20 group-hover:bg-primary/30' : 'bg-orange-500/20 group-hover:bg-orange-500/30'} rounded-full flex items-center justify-center transition-all`}>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className={`${isDarkMode ? 'text-primary' : 'text-orange-500'}`}>
+                          <div className={`w-12 h-12 ${isDarkMode ? 'bg-primary/30 group-hover:bg-primary/40' : 'bg-orange-500/30 group-hover:bg-orange-500/40'} backdrop-blur-sm rounded-full flex items-center justify-center transition-all border ${isDarkMode ? 'border-primary/40' : 'border-orange-500/40'}`}>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className={`${isDarkMode ? 'text-primary' : 'text-orange-600'}`}>
                               <path d="M21 19V5C21 3.9 20.1 3 19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19ZM8.5 13.5L11 16.51L14.5 12L19 18H5L8.5 13.5Z"/>
                             </svg>
                           </div>
                           <div>
-                            <p className={`${isDarkMode ? 'text-white' : 'text-black'} font-semibold text-sm`}>View Project</p>
-                            <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-xs`}>{project.images.length} screens</p>
+                            <p className={`${isDarkMode ? 'text-white' : 'text-black'} font-bold text-sm drop-shadow-md`}>View Project</p>
+                            <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-800'} text-xs font-medium`}>{project.images.length} screens</p>
                           </div>
                         </div>
                         
                         <button
                           onClick={() => openProjectSlider(project)}
-                          className={`group/btn relative w-14 h-14 border-2 ${isDarkMode ? 'border-white/20 hover:border-primary hover:bg-primary/10' : 'border-black/20 hover:border-orange-500 hover:bg-orange-500/10'} rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden`}
+                          className={`group/btn relative w-14 h-14 border-2 ${isDarkMode ? 'border-white/30 hover:border-primary hover:bg-primary/20' : 'border-black/30 hover:border-orange-500 hover:bg-orange-500/20'} backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 overflow-hidden`}
                         >
-                          <div className={`absolute inset-0 ${isDarkMode ? 'bg-primary/0 group-hover/btn:bg-primary/20' : 'bg-orange-500/0 group-hover/btn:bg-orange-500/20'} transition-all duration-300`}></div>
+                          <div className={`absolute inset-0 ${isDarkMode ? 'bg-primary/0 group-hover/btn:bg-primary/30' : 'bg-orange-500/0 group-hover/btn:bg-orange-500/30'} transition-all duration-300`}></div>
                           <svg 
                             width="20" 
                             height="20" 
                             viewBox="0 0 24 24" 
                             fill="none" 
                             stroke="currentColor" 
-                            strokeWidth="2" 
-                            className={`${isDarkMode ? 'text-white group-hover/btn:text-primary' : 'text-black group-hover/btn:text-orange-500'} transition-all duration-300 group-hover/btn:scale-110`}
+                            strokeWidth="2.5" 
+                            className={`${isDarkMode ? 'text-white group-hover/btn:text-primary' : 'text-black group-hover/btn:text-orange-600'} transition-all duration-300 group-hover/btn:scale-110`}
                           >
                             <path d="M7 17L17 7M17 7H7M17 7V17"/>
                           </svg>
@@ -619,9 +628,9 @@ function App() {
         {/* CONTACT SECTION */}
         <section 
           id="contact"
-          className={`h-screen ${isDarkMode ? 'bg-black text-white border-white/10' : 'bg-white text-black border-black/10'} flex flex-col justify-center px-4 md:px-10 border-t transition-colors duration-300`}
+          className={`min-h-screen snap-start snap-always ${isDarkMode ? 'bg-black text-white border-white/10' : 'bg-white text-black border-black/10'} flex flex-col justify-center px-4 md:px-10 py-20 border-t transition-colors duration-300`}
         >
-          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full pt-16 md:pt-20">
+          <motion.div {...fadeInUp} className="max-w-7xl mx-auto w-full">
             {/* Section Header */}
             <div className="text-center mb-8">
               <h2 className={`text-5xl md:text-6xl lg:text-7xl font-black ${isDarkMode ? 'text-primary' : 'text-orange-500'} tracking-tighter uppercase mb-4`}>
@@ -720,17 +729,17 @@ function App() {
         </section>
 
         {/* FOOTER */}
-        <footer className={`h-screen snap-start flex flex-col justify-between px-4 md:px-10 overflow-hidden relative ${isDarkMode ? 'border-white/10 bg-black text-white' : 'border-black/10 bg-gray-50 text-black'} border-t transition-colors duration-300`}>
+        <footer className={`min-h-screen snap-start snap-always flex flex-col justify-between px-4 md:px-10 pt-20 pb-0 overflow-hidden relative ${isDarkMode ? 'border-white/10 bg-black text-white' : 'border-black/10 bg-gray-50 text-black'} border-t transition-colors duration-300`}>
           <motion.div {...fadeInUp} className="flex-grow flex flex-col justify-center items-center max-w-7xl mx-auto w-full py-10">
-            <div className="text-center space-y-8">
+            <div className="text-center space-y-8 w-full">
               <h3 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} uppercase tracking-widest`}>
                 Let's Build Something Great
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+              <div className="flex justify-center">
                 <div className="space-y-4">
                   <h4 className={`text-lg font-bold ${isDarkMode ? 'text-primary' : 'text-orange-500'} uppercase`}>Contact</h4>
-                  <div className={`space-y-2 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <div className={`space-y-2 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-center`}>
                     <p>
                       <a href="mailto:Muhammad.ibrahim.k@protonmail.com" className={`${isDarkMode ? 'hover:text-primary' : 'hover:text-orange-500'} transition-colors`}>
                         Muhammad.ibrahim.k@protonmail.com
@@ -742,23 +751,22 @@ function App() {
                       </a>
                     </p>
                     <p>
-                      <a href="https://www.linkedin.com/in/muhammad-ibrahimkhan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className={`${isDarkMode ? 'hover:text-primary' : 'hover:text-orange-500'} transition-colors`}>
-                        <span className=" text-black-400">LinkedIn</span> Ibrahim Khan 
+                      <a href="https://www.linkedin.com/in/muhammad-ibrahimkhan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? 'hover:text-primary' : 'hover:text-orange-500'} transition-colors`}>
+                        LinkedIn - Ibrahim Khan 
                       </a>
                     </p>
                   </div>
                 </div>
-
               </div>
             </div>
           </motion.div>
           
-          <motion.div {...fadeInUp} className="w-full py-10">
-            <div className={`border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'} pt-6`}>
+          <motion.div {...fadeInUp} className="w-full pb-0">
+            <div className={`border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'} pt-6 pb-0`}>
               <h1 className={`text-[12vw] md:text-[15vw] font-black leading-none tracking-tighter text-center uppercase opacity-80 ${isDarkMode ? 'hover:text-primary' : 'hover:text-orange-500'} transition-all duration-700 cursor-default`}>
                 IBRAHIM
               </h1>
-              <div className={`flex flex-col md:flex-row justify-between items-center mt-4 text-xs ${isDarkMode ? 'text-gray-600' : 'text-gray-500'} tracking-[0.3em] uppercase`}>
+              <div className={`flex flex-col md:flex-row justify-between items-center mt-4 mb-0 text-xs ${isDarkMode ? 'text-gray-600' : 'text-gray-500'} tracking-[0.3em] uppercase`}>
                 <p>© 2026 Ibrahim Khan. All Rights Reserved</p>
                 <p className="mt-2 md:mt-0">Designed by IBRAHIM , Developed by SALAR AHMED MIRZA</p>
               </div>
@@ -768,49 +776,37 @@ function App() {
 
         {/* Project Slider Modal */}
         {selectedProject && (
-          <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-2 md:p-4">
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className={`relative max-w-6xl w-full max-h-[90vh] ${isDarkMode ? 'bg-black/80 border-white/10' : 'bg-white/90 border-black/10'} border rounded-lg overflow-hidden`}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className={`relative w-full h-full max-w-7xl max-h-[98vh] ${isDarkMode ? 'bg-black/90 border-white/10' : 'bg-white/95 border-black/10'} border rounded-lg overflow-hidden flex flex-col`}
             >
-              {/* Header */}
-              <div className={`flex justify-between items-center p-6 border-b ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
+              {/* Header - Compact */}
+              <div className={`flex justify-between items-center px-4 py-3 md:px-6 md:py-4 border-b ${isDarkMode ? 'border-white/10' : 'border-black/10'} flex-shrink-0`}>
                 <div>
-                  <h2 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>{selectedProject.title}</h2>
-                  <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>{selectedProject.description}</p>
+                  <h2 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>{selectedProject.title}</h2>
+                  <p className={`text-xs md:text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>{selectedProject.description}</p>
                 </div>
                 <button 
                   onClick={closeProjectSlider}
-                  className={`w-10 h-10 ${isDarkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-black/10 hover:bg-black/20'} rounded-full flex items-center justify-center transition-all`}
+                  className={`w-8 h-8 md:w-10 md:h-10 ${isDarkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-black/10 hover:bg-black/20'} rounded-full flex items-center justify-center transition-all flex-shrink-0`}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`${isDarkMode ? 'text-white' : 'text-black'}`}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`${isDarkMode ? 'text-white' : 'text-black'}`}>
                     <path d="M18 6L6 18M6 6L18 18"/>
                   </svg>
                 </button>
               </div>
 
-              {/* Image Display */}
-              <div className="relative">
-                <div className={`flex items-center justify-center ${isDarkMode ? 'bg-black/50' : 'bg-gray-100'} min-h-[400px] md:min-h-[500px]`}>
-                  <div className="relative">
-                    <img 
-                      src={selectedProject.images[currentImageIndex].src}
-                      alt={selectedProject.images[currentImageIndex].title}
-                      className="max-w-full max-h-[60vh] object-contain"
-                    />
-                    {/* Image Number Overlay */}
-                    <div className={`absolute top-4 left-4 ${isDarkMode ? 'bg-black/80' : 'bg-white/80'} backdrop-blur-sm px-4 py-2 rounded-lg`}>
-                      <span className={`${isDarkMode ? 'text-primary' : 'text-orange-500'} font-bold text-lg`}>
-                        {String(currentImageIndex + 1).padStart(2, '0')}
-                      </span>
-                      <span className={`${isDarkMode ? 'text-white/60' : 'text-black/60'} text-sm mx-2`}>/</span>
-                      <span className={`${isDarkMode ? 'text-white/80' : 'text-black/80'} text-sm`}>
-                        {String(selectedProject.images.length).padStart(2, '0')}
-                      </span>
-                    </div>
-                  </div>
+              {/* Image Display - Much Larger */}
+              <div className="relative flex-grow flex items-center justify-center overflow-hidden">
+                <div className={`w-full h-full flex items-center justify-center ${isDarkMode ? 'bg-black/50' : 'bg-gray-100'} p-2 md:p-4`}>
+                  <img 
+                    src={selectedProject.images[currentImageIndex].src}
+                    alt={selectedProject.images[currentImageIndex].title}
+                    className="max-w-full max-h-full object-contain"
+                  />
                 </div>
 
                 {/* Navigation Arrows */}
@@ -818,81 +814,62 @@ function App() {
                   <>
                     <button 
                       onClick={prevImage}
-                      className={`absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 ${isDarkMode ? 'bg-black/60 hover:bg-black/80' : 'bg-white/60 hover:bg-white/80'} rounded-full flex items-center justify-center transition-all group/arrow`}
+                      className={`absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 ${isDarkMode ? 'bg-black/70 hover:bg-black/90' : 'bg-white/70 hover:bg-white/90'} backdrop-blur-sm rounded-full flex items-center justify-center transition-all group/arrow`}
                     >
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`${isDarkMode ? 'text-white group-hover/arrow:text-primary' : 'text-black group-hover/arrow:text-orange-500'} transition-colors`}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={`${isDarkMode ? 'text-white group-hover/arrow:text-primary' : 'text-black group-hover/arrow:text-orange-500'} transition-colors`}>
                         <path d="M15 18L9 12L15 6"/>
                       </svg>
                     </button>
                     <button 
                       onClick={nextImage}
-                      className={`absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 ${isDarkMode ? 'bg-black/60 hover:bg-black/80' : 'bg-white/60 hover:bg-white/80'} rounded-full flex items-center justify-center transition-all group/arrow`}
+                      className={`absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 ${isDarkMode ? 'bg-black/70 hover:bg-black/90' : 'bg-white/70 hover:bg-white/90'} backdrop-blur-sm rounded-full flex items-center justify-center transition-all group/arrow`}
                     >
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`${isDarkMode ? 'text-white group-hover/arrow:text-primary' : 'text-black group-hover/arrow:text-orange-500'} transition-colors`}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={`${isDarkMode ? 'text-white group-hover/arrow:text-primary' : 'text-black group-hover/arrow:text-orange-500'} transition-colors`}>
                         <path d="M9 18L15 12L9 6"/>
                       </svg>
                     </button>
                   </>
                 )}
 
-                {/* Progress Bar */}
-                <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 ${isDarkMode ? 'bg-black/60' : 'bg-white/60'} backdrop-blur-sm px-4 py-2 rounded-full`}>
-                  <div className="flex items-center gap-2">
-                    <span className={`${isDarkMode ? 'text-white' : 'text-black'} text-sm font-medium`}>
-                      {selectedProject.images[currentImageIndex].title}
-                    </span>
-                    <div className={`w-px h-4 ${isDarkMode ? 'bg-white/30' : 'bg-black/30'}`}></div>
-                    <div className="flex gap-1">
-                      {selectedProject.images.map((_, index) => (
-                        <div
-                          key={index}
-                          className={`w-2 h-2 rounded-full transition-all ${
-                            index === currentImageIndex 
-                              ? `${isDarkMode ? 'bg-primary' : 'bg-orange-500'}` 
-                              : `${isDarkMode ? 'bg-white/30' : 'bg-black/30'}`
-                          }`}
-                        />
-                      ))}
-                    </div>
+                {/* Dot Indicators */}
+                <div className={`absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 ${isDarkMode ? 'bg-black/70' : 'bg-white/70'} backdrop-blur-md px-4 md:px-6 py-2 md:py-3 rounded-full`}>
+                  <div className="flex items-center gap-1.5 md:gap-2">
+                    {selectedProject.images.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`transition-all rounded-full ${
+                          index === currentImageIndex 
+                            ? `w-6 md:w-8 h-2 md:h-3 ${isDarkMode ? 'bg-primary' : 'bg-orange-500'}` 
+                            : `w-2 md:w-3 h-2 md:h-3 ${isDarkMode ? 'bg-white/40 hover:bg-white/60' : 'bg-black/40 hover:bg-black/60'}`
+                        }`}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* Image Info */}
-              <div className={`p-6 border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
-                <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-2`}>
-                  {selectedProject.images[currentImageIndex].title}
-                </h3>
-                <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} mb-4`}>
-                  {selectedProject.images[currentImageIndex].desc}
-                </p>
-
-                {/* Thumbnail Navigation */}
-                <div className="flex gap-2 overflow-x-auto pb-2">
-                  {selectedProject.images.map((image, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`flex-shrink-0 w-16 h-16 rounded border-2 transition-all ${
-                        index === currentImageIndex 
-                          ? `${isDarkMode ? 'border-primary' : 'border-orange-500'}` 
-                          : `${isDarkMode ? 'border-white/20 hover:border-white/40' : 'border-black/20 hover:border-black/40'}`
-                      }`}
-                    >
-                      <img 
-                        src={image.src} 
-                        alt={image.title}
-                        className="w-full h-full object-cover rounded"
-                      />
-                    </button>
-                  ))}
+              {/* Image Info - Compact */}
+              <div className={`px-4 py-3 md:px-6 md:py-4 border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'} flex-shrink-0`}>
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex-1 min-w-0">
+                    <h3 className={`text-sm md:text-base font-bold ${isDarkMode ? 'text-white' : 'text-black'} truncate`}>
+                      {selectedProject.images[currentImageIndex].title}
+                    </h3>
+                    <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-xs md:text-sm line-clamp-1`}>
+                      {selectedProject.images[currentImageIndex].desc}
+                    </p>
+                  </div>
+                  <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-xs md:text-sm font-medium flex-shrink-0`}>
+                    {currentImageIndex + 1} / {selectedProject.images.length}
+                  </span>
                 </div>
               </div>
             </motion.div>
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 }
 
