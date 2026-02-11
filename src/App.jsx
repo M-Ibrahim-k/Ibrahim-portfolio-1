@@ -431,8 +431,8 @@ function App() {
                 },
                 {
                   title: "Design Project Management",
-                  description: "End-to-End Project Ownership, Timeline & Milestone Planning,Feedback & Iteration Management",
-                  technologies: ["User Research", "Wireframing", "Prototyping", "Visual Design"]
+                  description: "Managing design projects strategically to deliver seamless experiences on time and with impact.",
+                  technologies: ["Requirement Gathering", "Design Sprint Planning", "Feedback & Iteration Management", "Stakeholder Communication"]
 
                 }
               ].map((service, i) => (
