@@ -768,7 +768,7 @@ function App() {
               </h1>
               <div className={`flex flex-col md:flex-row justify-between items-center mt-4 mb-0 text-xs ${isDarkMode ? 'text-gray-600' : 'text-gray-500'} tracking-[0.3em] uppercase`}>
                 <p>© 2026 Ibrahim Khan. All Rights Reserved</p>
-                <p className="mt-2 md:mt-0">Designed by IBRAHIM , Developed by SALAR AHMED MIRZA</p>
+                <p className="mt-2 md:mt-0">Designed and Developed by MUHAMMAD IBRAHIM KHAN</p>
               </div>
             </div>
           </motion.div>
